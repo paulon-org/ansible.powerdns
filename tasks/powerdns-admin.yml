@@ -1,0 +1,36 @@
+- name: Install requirements
+  ansible.builtin.apt:
+    name:
+      - libsasl2-dev
+      - libldap2-dev
+      - libssl-dev
+      - libxml2-dev 
+      - libxslt1-dev
+      - libxmlsec1-dev
+      - libffi-dev
+      - pkg-config
+      - apt-transport-https
+      - python3-venv
+      - build-essential
+
+- name: Add node repository gpg key
+  ansible.builtin.apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+
+- name: Add node repository
+  ansible.builtin.apt_repository:
+    repo: deb https://deb.nodesource.com/node_10.x bullseye main
+
+- name: Add yarn repository gpg key
+  ansible.builtin.apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+
+- name: Add node repository
+  ansible.builtin.apt_repository:
+    repo: deb https://dl.yarnpkg.com/debian/ stable main
+
+- name: Install nodejs and yarn
+  ansible.builtin.apt:
+    name: nodejs
+    update_cache: yes
+
