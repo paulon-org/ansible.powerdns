@@ -1,7 +1,7 @@
 - name: Install powerdns
   ansible.builtin.apt:
     name: 
-      - pdns
+      - pdns-server
       - pdns-backend-psql
 
 - include: powerdns-admin.yml
