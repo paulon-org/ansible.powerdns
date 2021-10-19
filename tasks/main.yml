@@ -2,7 +2,7 @@
   ansible.builtin.apt:
     name: 
       - pdns-server
-      - pdns-backend-psql
+      - pdns-backend-pgsql
 
 - include: powerdns-admin.yml
   when: powerdns.admin
