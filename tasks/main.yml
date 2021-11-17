@@ -4,5 +4,10 @@
       - pdns-server
       - pdns-backend-pgsql
 
+- name: Deploy configuration
+  ansible.builtin.template:
+    src: etc/powerdns/pdns.conf
+    dest: /etc/powerdns/pdns.conf
+
 - include: "powerdns-admin.yml"
   when: powerdns.admin
