@@ -4,5 +4,5 @@
       - pdns-server
       - pdns-backend-pgsql
 
-- include: powerdns-admin.yml
+- include: "powerdns-admin.yml"
   when: powerdns.admin
